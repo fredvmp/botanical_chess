@@ -1,0 +1,23 @@
+.cells {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+
+}
+
+.black-cell {
+    background-color: #343434;
+}
+
+.white-cell {
+    background-color: #bdbdbd;
+}
+
+.piece {
+    height: auto;
+    width: 40%;
+    object-fit: contain;
+}
