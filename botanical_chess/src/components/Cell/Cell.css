@@ -1,23 +1,34 @@
 .cells {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc; 
-    box-sizing: border-box;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .black-cell {
-    background-color: #343434;
+  background-color: #343434;
 }
 
 .white-cell {
-    background-color: #bdbdbd;
+  background-color: #bdbdbd;
 }
 
-.piece {
-    height: auto;
-    width: 40%;
-    object-fit: contain;
+.chess-piece {
+  width: 90%;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: block;
+  user-select: none;
+}
+
+.chess-piece:hover {
+  cursor: grab;
+}
+
+.chess-piece:active {
+  cursor: grabbing;
 }
