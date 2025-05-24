@@ -7,15 +7,15 @@
   position: relative;
 }
 
-.black-cell {
+.blackCell {
   background-color: #343434;
 }
 
-.white-cell {
+.whiteCell {
   background-color: #bdbdbd;
 }
 
-.chess-piece {
+.chessPiece {
   width: 90%;
   aspect-ratio: 1 / 1;
   background-repeat: no-repeat;
@@ -25,10 +25,10 @@
   user-select: none;
 }
 
-.chess-piece:hover {
+.chessPiece:hover {
   cursor: grab;
 }
 
-.chess-piece:active {
+.chessPiece:active {
   cursor: grabbing;
 }

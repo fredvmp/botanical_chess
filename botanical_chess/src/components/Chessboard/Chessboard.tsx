@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Chessboard.css";
-import Cell from "../../components/Cell/Cell";
+import styles from "./Chessboard.module.css";
+import Cell from "../cell/Cell";
 
 const horizontalAxis = [1, 2, 3, 4, 5, 6, 7, 8];
 const verticalAxis = ["A", "B", "C", "D", "E", "F", "G", "H"];
@@ -89,7 +89,7 @@ for (let p = 0; p < 2; p++) {
   });
 }
 
-const Chessboard = () => {
+const Chessboard: React.FC = () => {
   const [pieces, setPieces] = useState<Piece[]>(initialPieces);
   const [activePiece, setActivePiece] = useState<HTMLElement | null>(null);
   const [grabOffset, setGrabOffset] = useState({ x: 0, y: 0 });
@@ -99,7 +99,7 @@ const Chessboard = () => {
 
   function grabPiece(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const element = e.target as HTMLElement;
-    if (element.classList.contains("chess-piece") && boardRef.current) {
+    if (element.dataset.id && boardRef.current) {
       const boardBounds = boardRef.current.getBoundingClientRect();
 
       const offsetX = e.clientX;
@@ -158,6 +158,8 @@ const Chessboard = () => {
     activePiece.style.top = "0";
     activePiece.style.pointerEvents = "auto";
     activePiece.style.zIndex = "auto";
+    activePiece.style.width = "";  
+    activePiece.style.height = ""; 
     setActivePiece(null);
     setPosition({ x: -1000, y: -1000 });
   }
@@ -191,7 +193,7 @@ const Chessboard = () => {
   }
 
   return (
-    <div ref={boardRef} onMouseDown={grabPiece} className="chessboard">
+    <div ref={boardRef} onMouseDown={grabPiece} className={styles.chessboard}>
       {board}
     </div>
   );

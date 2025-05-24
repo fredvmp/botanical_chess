@@ -1,5 +1,5 @@
 import React from "react";
-import "./Cell.css";
+import styles from "./Cell.module.css";
 
 interface Props {
   number: number;
@@ -9,8 +9,14 @@ interface Props {
   isActive: boolean;
 }
 
-const Cell = ({ number, image, dataId, pos, isActive }: Props) => {
-  const cellColor = number % 2 === 0 ? "black-cell" : "white-cell";
+const Cell: React.FC<Props> = ({
+  number,
+  image,
+  dataId,
+  pos,
+  isActive,
+}: Props) => {
+  const cellColor = number % 2 === 0 ? "blackCell" : "whiteCell";
 
   const style: React.CSSProperties = isActive
     ? {
@@ -33,8 +39,10 @@ const Cell = ({ number, image, dataId, pos, isActive }: Props) => {
       };
 
   return (
-    <div className={`cells ${cellColor}`}>
-      {image && <div className="chess-piece" data-id={dataId} style={style} />}
+    <div className={`${styles.cells} ${styles[cellColor]}`}>
+      {image && (
+        <div className={styles.chessPiece} data-id={dataId} style={style} />
+      )}
     </div>
   );
 };
